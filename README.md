@@ -12,13 +12,13 @@ The primary goals of this project are to:
 
 This project is a daily batch job that integrates data from multiple sources and is deployed on Google Cloud Platform (GCP) using Google Cloud Functions and Google Cloud Scheduler. 
 
-The process begins with collecting my portfolio from Moomoo via its API. This data is then enriched with historical dividend information and sector details sourced from a Google Sheet that is manually maintained by me. Since I have stocks from multiple markets, currency conversion is necessary to maintain consistent financial metrics such as total dividends gained, so the currencies are converted into SGD for consistency using real-time foreign exchange rates fetched from a third-party API. 
+The process begins with collecting my portfolio from Moomoo via its API. This data is then enriched with historical dividend information and sector details sourced from Yahoo Finance API. Since I have stocks from multiple markets, currency conversion is necessary to maintain consistent financial metrics such as total dividends gained, so the currencies are converted into SGD for consistency using real-time foreign exchange rates fetched from a third-party API. 
 
 ### Data Sources
 
 - **Portfolio Data**: Collected and processed from Moomoo API.
 - **FX Rates**: Fetched daily from a third-party API.
-- **Sector Data**: Integrated from own Google Sheets via manual population.
+- **Sector and Dividend Data**: Integrated from Yahoo Finance API.
 
 ### Tools Used
 
