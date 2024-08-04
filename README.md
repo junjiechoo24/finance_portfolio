@@ -27,3 +27,5 @@ The process begins with collecting my portfolio from Moomoo via its API. This da
 - **Google BigQuery**: Stores processed portfolio and dividend data for structured analysis and reporting.
 
 *Note: Due to the code containing sensitive information, it will not be included. However, I hope this summary is able to illustrate the idea.*
+
+### Skills: Python, GCP (Google Cloud Function, Cloud Scheduler, BigQuery), API integrations
