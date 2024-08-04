@@ -5,33 +5,25 @@
 ## Project Overview
 
 The primary goals of this project are to:
-1. Monitor portfolio performance over time and compare it against the S&P 500 benchmark.
-2. Manage sector weightings based on market outlook.
+1. Collect my portfolio data from Moomoo and monitor its performance over time to compare it against the S&P 500 benchmark.
+2. Manage and track my sector weightings to rebalance based on market outlook.
 3. Prevent individual holdings from being overweighted.
 4. Track dividend collections.
 
-This project integrates data from multiple sources and is deployed on Google Cloud Platform (GCP) using Google Cloud Functions and Google Cloud Scheduler. The process begins with collecting portfolio data from Moomoo. This data is then enriched with historical dividend information sourced from Yahoo Finance and converted into SGD for consistency using real-time foreign exchange rates fetched from a third-party API. Stock and sector information is retrieved from Google Sheets to calculate sector weightings and other relevant metrics.
+This project is a daily batch job that integrates data from multiple sources and is deployed on Google Cloud Platform (GCP) using Google Cloud Functions and Google Cloud Scheduler. 
 
-### Data Processing
+The process begins with collecting my portfolio from Moomoo via its API. This data is then enriched with historical dividend information and sector details sourced from a Google Sheet that is manually maintained by me. Since I have stocks from multiple markets, currency conversion is necessary to maintain consistent financial metrics such as total dividends gained, so the currencies are converted into SGD for consistency using real-time foreign exchange rates fetched from a third-party API. 
 
-- **Conversion**: All financial metrics are converted to SGD using real-time FX rates for HKD, SGD, USD, and MYR.
-- **Integration**: Moomoo portfolio data is integrated with catalogue data from Google Sheets.
-- **Dividend Calculations**: Dividend yields and related metrics are calculated using data from Yahoo Finance.
+### Data Sources
 
-### Data Storage and Analysis
+- **Portfolio Data**: Collected and processed from Moomoo API.
+- **FX Rates**: Fetched daily from a third-party API.
+- **Sector Data**: Integrated from own Google Sheets via manual population.
 
-Processed portfolio and dividend data is inserted into BigQuery tables after clearing old data based on timestamps. Key metrics are aggregated for overall portfolio analysis. This automated process ensures that the data is up-to-date, facilitating informed portfolio management and decision-making.
-
-### Trigger Mechanism
+### Tools Used
 
 - **Google Cloud Scheduler**: Schedules tasks to trigger data collection and processing at specified intervals.
 - **Google Cloud Functions**: Executes data integration, processing, and analysis tasks as triggered by Cloud Scheduler.
+- **Google BigQuery**: Stores processed portfolio and dividend data for structured analysis and reporting.
 
-### Daily Data Integration
-
-- **Portfolio Data**: Collected and processed from Moomoo.
-- **FX Rates**: Fetched daily from a third-party API.
-- **Catalogue Data**: Integrated from Google Sheets.
-- **Dividend Data**: Updated from Yahoo Finance.
-
-This project ensures real-time updates and accurate portfolio monitoring, enabling informed decision-making and efficient portfolio management.
+*Note: Due to the code containing sensitive information, it will not be included. However, I hope this summary is able to illustrate the idea.*
